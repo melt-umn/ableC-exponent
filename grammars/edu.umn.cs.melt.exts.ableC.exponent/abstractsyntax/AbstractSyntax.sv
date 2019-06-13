@@ -26,13 +26,13 @@ top::Expr ::= l::Expr r::Expr
   local fwrd::Expr =
     ableC_Expr {
       ({$directTypeExpr{l.typerep} $name{lTempName} = $Expr{l};
-        $directTypeExpr{r.typerep} $name{rTempName} = $Expr{r};
+        long $name{rTempName} = $Expr{r};
         $directTypeExpr{l.typerep} _res = 1;
         if ($name{rTempName} < 0) {
           $name{lTempName} = 1 / $name{lTempName};
           $name{rTempName} = -$name{rTempName};
         }
-        for ($directTypeExpr{r.typerep} _i = 0; _i < $name{rTempName}; _i++) {
+        for (long _i = 0; _i < $name{rTempName}; _i++) {
           _res *= $name{lTempName};
         }
         _res;})
